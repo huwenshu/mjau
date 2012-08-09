@@ -1,0 +1,95 @@
+{
+	"family": "Open Sans",
+	"subfamilies": [
+		{
+			"basename": "os-light",
+			"formats" : [
+				"eot",
+				"woff"
+			],
+			"style": "normal",
+			"weight": 300
+		},
+		{
+			"basename": "os-lightitalic",
+			"formats" : [
+				"eot",
+				"woff"
+			],
+			"style": "italic",
+			"weight": 300
+		},
+		{
+			"basename": "os-regular",
+			"formats" : [
+				"eot",
+				"woff"
+			],
+			"style": "normal",
+			"weight": 400
+		},
+		{
+			"basename": "os-italic",
+			"formats" : [
+				"eot",
+				"woff"
+			],
+			"style": "italic",
+			"weight": 400
+		},
+		{
+			"basename": "os-semibold",
+			"formats" : [
+				"eot",
+				"woff"
+			],
+			"style": "normal",
+			"weight": 600
+		},
+		{
+			"basename": "os-semibolditalic",
+			"formats" : [
+				"eot",
+				"woff"
+			],
+			"style": "italic",
+			"weight": 600
+		},
+		{
+			"basename": "os-bold",
+			"formats" : [
+				"eot",
+				"woff"
+			],
+			"style": "normal",
+			"weight": 700
+		},
+		{
+			"basename": "os-bolditalic",
+			"formats" : [
+				"eot",
+				"woff"
+			],
+			"style": "italic",
+			"weight": 700
+		},
+		{
+			"basename": "os-extrabold",
+			"formats" : [
+				"eot",
+				"woff"
+			],
+			"style": "normal",
+			"weight": 800
+		},
+		{
+			"basename": "os-extrabolditalic",
+			"formats" : [
+				"eot",
+				"woff"
+			],
+			"style": "italic",
+			"weight": 800
+		}
+	]
+}

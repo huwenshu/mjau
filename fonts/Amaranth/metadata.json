@@ -1,0 +1,41 @@
+{
+	"family": "Amaranth",
+	"subfamilies": [
+		{
+			"basename": "amaranth-regular",
+			"formats" : [
+				"eot",
+				"woff"
+			],
+			"style": "normal",
+			"weight": 400
+		},
+		{
+			"basename": "amaranth-italic",
+			"formats" : [
+				"eot",
+				"woff"
+			],
+			"style": "italic",
+			"weight": 400
+		},
+		{
+			"basename": "amaranth-bold",
+			"formats" : [
+				"eot",
+				"woff"
+			],
+			"style": "normal",
+			"weight": 700
+		},
+		{
+			"basename": "amaranth-bolditalic",
+			"formats" : [
+				"eot",
+				"woff"
+			],
+			"style": "italic",
+			"weight": 700
+		}
+	]
+}

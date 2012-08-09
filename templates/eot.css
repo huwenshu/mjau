@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+{{range .}}@font-face {
+	font-family: "{{.Family}}";
+	src: url(data:{{.MimeType}};charset=utf-8;base64,{{.Base64Data}}) format("embedded-opentype");
+	font-style: {{.Style}};
+	font-weight: {{.Weight}};
+}
+{{end}}
