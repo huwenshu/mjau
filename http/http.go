@@ -23,10 +23,11 @@ import (
 
 // Flags holds the state of the HTTP flags.
 type Flags struct {
-	CcMaxAge int    // Cache-Control max-age value.
-	Etag     bool   // Entity tags validation toggle.
-	Gzip     bool   // Response gzip compression toggle.
-	Version  string // Server version string.
+	AcAllowOrigin bool   // Cross-origin resource sharing toggle.
+	CcMaxAge      int    // Cache-Control max-age value.
+	Etag          bool   // Entity tags validation toggle.
+	Gzip          bool   // Response gzip compression toggle.
+	Version       string // Server version string.
 }
 
 // FontFace represents a single @font-face CSS rule.
@@ -195,6 +196,9 @@ func Etag(w http.ResponseWriter, r *http.Request, queries []*inventory.Query,
 
 func MakeHandler(fn HandlerFunc, ctx HandlerContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		if ctx.Flags.AcAllowOrigin {
+			w.Header().Set("Access-Control-Allow-Origin", "*")
+		}
 		if ctx.Flags.Version != "" {
 			w.Header().Set("Server", ctx.Flags.Version)
 		}

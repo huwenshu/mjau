@@ -221,8 +221,9 @@ func TestMakeHandler(t *testing.T) {
 		{
 			Context: HandlerContext{
 				Flags: Flags{
-					Gzip:    true,
-					Version: "test/0.1",
+					AcAllowOrigin: false,
+					Gzip:          true,
+					Version:       "test/0.1",
 				},
 			},
 			Header: map[string]string{
@@ -234,20 +235,23 @@ func TestMakeHandler(t *testing.T) {
 		{
 			Context: HandlerContext{
 				Flags: Flags{
-					Gzip:    false,
-					Version: "test/0.1",
+					AcAllowOrigin: true,
+					Gzip:          false,
+					Version:       "test/0.1",
 				},
 			},
 			Header: map[string]string{
-				"Server": "test/0.1",
+				"Access-Control-Allow-Origin": "*",
+				"Server":                      "test/0.1",
 			},
 		},
 		// Case 3
 		{
 			Context: HandlerContext{
 				Flags: Flags{
-					Gzip:    true,
-					Version: "",
+					AcAllowOrigin: false,
+					Gzip:          true,
+					Version:       "",
 				},
 			},
 			Header: map[string]string{
@@ -279,6 +283,9 @@ func TestMakeHandler(t *testing.T) {
 		gHeader := resp.Header
 		test.Verify(t, 2, j, wHeader["Server"], gHeader.Get("Server"))
 		test.Verify(t, 3, j, wHeader["Vary"], gHeader.Get("Vary"))
+		wAcAllowOrigin := wHeader["Access-Control-Allow-Origin"]
+		gAcAllowOrigin := gHeader.Get("Access-Control-Allow-Origin")
+		test.Verify(t, 4, j, wAcAllowOrigin, gAcAllowOrigin)
 	}
 }
 

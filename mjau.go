@@ -29,6 +29,7 @@ var (
 	eFlag = flag.Bool("e", false, "toggle entity tags validation")
 	gFlag = flag.Bool("g", false, "toggle response gzip compression")
 	lFlag = flag.String("l", "fonts/", "path to font library")
+	oFlag = flag.Bool("o", false, "toggle cross-origin resource sharing")
 	tFlag = flag.String("t", "templates/", "path to templates directory")
 	vFlag = flag.Bool("v", false, "display version number and exit")
 	wFlag = flag.String("w", "whitelist.json", "path to whitelist file")
@@ -78,10 +79,11 @@ func main() {
 	var cssHandler http.HandlerFunc
 	ctx := ihttp.HandlerContext{
 		Flags: ihttp.Flags{
-			CcMaxAge: *cFlag,
-			Etag:     *eFlag,
-			Gzip:     *gFlag,
-			Version:  ProgName + "/" + ProgVersion,
+			AcAllowOrigin: *oFlag,
+			CcMaxAge:      *cFlag,
+			Etag:          *eFlag,
+			Gzip:          *gFlag,
+			Version:       ProgName + "/" + ProgVersion,
 		},
 		Inventory: *fontInventory,
 		Templates: *templates,
