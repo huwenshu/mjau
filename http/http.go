@@ -24,7 +24,7 @@ import (
 // Flags holds the state of the HTTP flags.
 type Flags struct {
 	AcAllowOrigin bool   // Cross-origin resource sharing toggle.
-	CcMaxAge      int    // Cache-Control max-age value.
+	CcMaxAge      uint64 // Cache-Control max-age value.
 	Etag          bool   // Entity tags validation toggle.
 	Gzip          bool   // Response gzip compression toggle.
 	Version       string // Server version string.
@@ -138,7 +138,7 @@ func CssHandler(w http.ResponseWriter, r *http.Request, ctx HandlerContext) {
 		InternalServerError(w, r)
 		return
 	}
-	maxAge := strconv.Itoa(ctx.Flags.CcMaxAge)
+	maxAge := strconv.FormatUint(ctx.Flags.CcMaxAge, 10)
 	w.Header().Set("Cache-Control", "max-age="+maxAge)
 	w.Header().Set("Content-Type", "text/css; charset=utf-8")
 	io.Copy(w, buf)
@@ -177,7 +177,7 @@ func Etag(w http.ResponseWriter, r *http.Request, queries []*inventory.Query,
 		}
 		w.Header().Set("ETag", etag)
 		if r.Header.Get("If-None-Match") == etag {
-			maxAge := strconv.Itoa(ctx.Flags.CcMaxAge)
+			maxAge := strconv.FormatUint(ctx.Flags.CcMaxAge, 10)
 			w.Header().Set("Cache-Control", "max-age="+maxAge)
 			NotModified(w, r)
 			return true

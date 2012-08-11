@@ -25,10 +25,10 @@ const (
 
 var (
 	bFlag = flag.String("b", "0.0.0.0:80", "TCP address to bind to")
-	cFlag = flag.Int("c", 2592000, "Cache-Control max-age value")
 	eFlag = flag.Bool("e", false, "toggle entity tags validation")
 	gFlag = flag.Bool("g", false, "toggle response gzip compression")
 	lFlag = flag.String("l", "fonts/", "path to font library")
+	mFlag = flag.Uint64("m", 2592000, "Cache-Control max-age value")
 	oFlag = flag.Bool("o", false, "toggle cross-origin resource sharing")
 	tFlag = flag.String("t", "templates/", "path to templates directory")
 	vFlag = flag.Bool("v", false, "display version number and exit")
@@ -80,7 +80,7 @@ func main() {
 	ctx := ihttp.HandlerContext{
 		Flags: ihttp.Flags{
 			AcAllowOrigin: *oFlag,
-			CcMaxAge:      *cFlag,
+			CcMaxAge:      *mFlag,
 			Etag:          *eFlag,
 			Gzip:          *gFlag,
 			Version:       ProgName + "/" + ProgVersion,
