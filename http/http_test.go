@@ -310,8 +310,8 @@ func TestCssHandler(t *testing.T) {
 
 	// Parse templates.
 	// Used in cases 7-9.
-	eot := filepath.Join(tp, "eot.css")
-	woff := filepath.Join(tp, "woff.css")
+	eot := filepath.Join(tp, "eot.css.tmpl")
+	woff := filepath.Join(tp, "woff.css.tmpl")
 	tmpl, err := template.ParseFiles(eot, woff)
 	test.VerifyFatal(t, 2, 0, true, err == nil)
 
@@ -338,7 +338,7 @@ func TestCssHandler(t *testing.T) {
 		Weight:     ar.Weight,
 	}
 	buf := new(bytes.Buffer)
-	tmplName := ar.Format.String() + ".css"
+	tmplName := ar.Format.String() + ".css.tmpl"
 	tmplData = append(tmplData, arff)
 	err = tmpl.ExecuteTemplate(buf, tmplName, tmplData)
 	test.VerifyFatal(t, 5, 0, true, nil == err)

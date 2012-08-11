@@ -129,7 +129,7 @@ func CssHandler(w http.ResponseWriter, r *http.Request, ctx HandlerContext) {
 			return
 		}
 		templateData = append(templateData, fontFace)
-		templateName = fnt.Format.String() + ".css"
+		templateName = fnt.Format.String() + ".css.tmpl"
 	}
 	buf := new(bytes.Buffer)
 	err := ctx.Templates.ExecuteTemplate(buf, templateName, templateData)

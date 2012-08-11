@@ -68,8 +68,8 @@ func main() {
 	}
 	// Parse templates.
 	templatesPath := filepath.FromSlash(*tFlag)
-	eot := filepath.Join(templatesPath, "eot.css")
-	woff := filepath.Join(templatesPath, "woff.css")
+	eot := filepath.Join(templatesPath, "eot.css.tmpl")
+	woff := filepath.Join(templatesPath, "woff.css.tmpl")
 	var templates *template.Template
 	var err error
 	if templates, err = template.ParseFiles(eot, woff); err != nil {
