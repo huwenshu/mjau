@@ -55,7 +55,7 @@ func main() {
 	if err := fontInventory.Build(*lFlag); err != nil {
 		PrintErrorExit(err.Error())
 	}
-	if fontInventory.Size() == 0 {
+	if fontInventory.Len() == 0 {
 		PrintErrorExit(fmt.Sprintf("%s: empty font library", *lFlag))
 	}
 	// Read whitelist.

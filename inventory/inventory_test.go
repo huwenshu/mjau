@@ -424,7 +424,7 @@ func TestInventoryBuild(t *testing.T) {
 	err := inventory.Build(fl)
 	test.VerifyFatal(t, 1, 0, true, nil == err)
 	wSize := len(InventoryBuildTestCases)
-	test.VerifyFatal(t, 2, 0, wSize, inventory.Size())
+	test.VerifyFatal(t, 2, 0, wSize, inventory.Len())
 
 	for i, c := range InventoryBuildTestCases {
 		j := i + 1

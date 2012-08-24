@@ -74,5 +74,5 @@ func (i *Inventory) Query(query Query) *font.Font {
 
 // New creates and returns a new (empty) inventory.
 func New() *Inventory {
-	return &Inventory{table.NewTable()}
+	return &Inventory{table.New()}
 }
